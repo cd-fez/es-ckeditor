@@ -1,11 +1,11 @@
 {
-  "name": "ckeditor",
-  "version": "4.7.2",
-  "description": "JavaScript WYSIWYG web text editor.",
+  "name": "cd-ckeditor",
+  "version": "1.2.0",
+  "description": "CKEditor-based 4.7.2 implementation and add some plugins, For example kityformula etc.",
   "main": "ckeditor.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ckeditor/ckeditor-releases.git"
+    "url": "git+https://github.com/ketuzhong/es-ckeditor.git"
   },
   "keywords": [
     "ckeditor",
