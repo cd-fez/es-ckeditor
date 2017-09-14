@@ -1,8 +1,3 @@
-.kf-editor-iframe {
-    width: 780px !important;
-    height: 300px !important;
-}
-
 .kf-editor {
     width: 100%;
     height: 100%;
@@ -14,7 +9,6 @@
     overflow: hidden;
     z-index: 2;
     background-color: #f6f5ee;
-    box-sizing: border-box;
 }
 
 .kf-editor-edit-area {
