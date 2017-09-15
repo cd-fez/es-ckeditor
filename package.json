@@ -1,7 +1,7 @@
 {
-  "name": "cd-ckeditor",
+  "name": "es-ckeditor",
   "version": "1.2.0",
-  "description": "CKEditor-based 4.7.2 implementation and add some plugins, For example kityformula etc.",
+  "description": "CKEditor-based implementation and add some plugins, For example kityformula etc.",
   "main": "ckeditor.js",
   "repository": {
     "type": "git",
