@@ -62,7 +62,7 @@
         
         return {
             title: '公式编辑器',
-            minWidth: 800,
+            minWidth: 780,
             minHeight: 300,
             resizable: CKEDITOR.DIALOG_RESIZE_NONE,
             buttons: [
