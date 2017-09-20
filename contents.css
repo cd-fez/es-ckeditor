@@ -27,6 +27,10 @@ body
 	word-wrap: break-word;
 }
 
+.cke_editable img {
+	max-width: 100%;
+}
+
 blockquote
 {
 	font-style: italic;
