@@ -1,7 +1,7 @@
 ﻿(function () {
     "use strict";
     function iframeSrcPath(srcpath) {
-        var filename = "kityformula.js",
+        var filename = "dialogs/kityformula.js",
         scripts = document.getElementsByTagName('script'),
         script = null,
         len = scripts.length;
