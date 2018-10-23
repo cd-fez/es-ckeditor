@@ -89,4 +89,19 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.fileSingleSizeLimit = 10;
 
+    config.smiley_path = getUrlRelativePath(CKEDITOR.basePath + 'plugins/smiley/images/');
+
 };
+
+function getUrlRelativePath(url)
+{
+  var arrUrl = url.split("//");
+
+  var start = arrUrl[1].indexOf("/");
+  var relUrl = arrUrl[1].substring(start);
+
+  if(relUrl.indexOf("?") != -1){
+    relUrl = relUrl.split("?")[0];
+  }
+  return relUrl;
+}
