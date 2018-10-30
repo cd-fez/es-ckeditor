@@ -93,14 +93,16 @@ CKEDITOR.editorConfig = function( config ) {
 
 };
 
-function getUrlRelativePath(url) {
-  var arrUrl = url.split('//');
 
-  var start = arrUrl[1].indexOf('/');
+function getUrlRelativePath(url) {
+
+  var arrUrl = url.split("//");
+  var start = arrUrl[1].indexOf("/");
   var relUrl = arrUrl[1].substring(start);
 
-  if (relUrl.indexOf('?') != -1) {
-    relUrl = relUrl.split('?')[0];
+  if (relUrl.indexOf("?") != -1) {
+    relUrl = relUrl.split("?")[0];
   }
+
   return relUrl;
 }
