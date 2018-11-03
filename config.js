@@ -6,14 +6,14 @@
 CKEDITOR.env.isCompatible = true;
 
 CKEDITOR.editorConfig = function( config ) {
-    // Define changes to default configuration here. For example:
+  // Define changes to default configuration here. For example:
     var lang = document.documentElement.lang;
     lang = lang ? lang : 'zh-ch';
     config.language = lang.replace('_', '-').toLowerCase();
-    // config.uiColor = '#AADC6E';
+  // config.uiColor = '#AADC6E';
 
     config.toolbar_Minimal = [
-        { items: [ 'Bold', 'Italic', 'Underline', 'TextColor', '-', 'RemoveFormat', 'PasteText', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Source', 'uploadpictures', 'CodeSnippet', 'kityformula'] }
+        { items: [ 'Bold', 'Italic', 'Underline', 'TextColor', '-', 'RemoveFormat', 'PasteText', '-', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Source', 'uploadpictures', 'CodeSnippet', 'kityformula', 'EmbedSemantic'] }
     ];
 
     config.toolbar_editVip = [
@@ -29,7 +29,7 @@ CKEDITOR.editorConfig = function( config ) {
     ];
 
     config.toolbar_Question = [
-        { items: [ 'Bold', 'Italic', 'Underline', 'TextColor', '-', 'RemoveFormat', 'PasteText', '-', 'QuestionBlank', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Source', 'uploadpictures', 'CodeSnippet', 'kityformula', '-', 'Maximize'] }
+        { items: [ 'Bold', 'Italic', 'Underline', 'TextColor', '-', 'RemoveFormat', 'PasteText', '-', 'QuestionBlank', 'NumberedList', 'BulletedList', '-', 'Link', 'Unlink', '-', 'Source', 'uploadpictures', 'CodeSnippet', 'kityformula', '-', 'Maximize', 'EmbedSemantic'] }
     ];
 
     config.toolbar_Group = [
@@ -56,7 +56,7 @@ CKEDITOR.editorConfig = function( config ) {
         { items: [ 'Link', 'Unlink' ] },
         { items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { items: [ 'FontSize', 'TextColor', 'BGColor' ] },
-        { items: [ 'uploadpictures', 'CodeSnippet', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe', 'kityformula' ] },
+        { items: [ 'uploadpictures', 'CodeSnippet', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe', 'kityformula', 'EmbedSemantic' ] },
         { items: [ 'PasteText', 'PasteFromWord'] },
         { items: [ 'Find', '-', 'Source', '-', 'Maximize'] }
     ];
@@ -66,7 +66,7 @@ CKEDITOR.editorConfig = function( config ) {
         { items: [ 'Link', 'Unlink' ] },
         { items: [ 'NumberedList', 'BulletedList', '-', 'Outdent', 'Indent', '-', 'Blockquote', '-', 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock' ] },
         { items: [ 'FontSize', 'TextColor', 'BGColor' ] },
-        { items: [ 'uploadpictures', 'CodeSnippet', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe' ] },
+        { items: [ 'uploadpictures', 'CodeSnippet', 'Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe', 'EmbedSemantic' ] },
         { items: [ 'PasteText', 'PasteFromWord'] },
         { items: [ 'Find', '-', 'Source', '-', 'Maximize'] }
     ];
@@ -82,27 +82,11 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.removePlugins= 'elementspath';
 
-    config.extraPlugins = 'questionblank,smiley,table,font,kityformula,codesnippet,uploadpictures,shortUrl,image2,colorbutton,colordialog,justify,flash,find';
+    config.extraPlugins = 'embedsemantic,questionblank,smiley,table,font,kityformula,codesnippet,uploadpictures,shortUrl,image2,colorbutton,colordialog,justify,flash,find';
     // config.dialog_backgroundCoverColor = 'white';
     // config.stylesSet = 'my_styles';
     config.codeSnippet_theme = 'zenburn';
 
     config.fileSingleSizeLimit = 10;
 
-    config.smiley_path = getUrlRelativePath(CKEDITOR.basePath + 'plugins/smiley/images/');
-
 };
-
-
-function getUrlRelativePath(url) {
-
-  var arrUrl = url.split("//");
-  var start = arrUrl[1].indexOf("/");
-  var relUrl = arrUrl[1].substring(start);
-
-  if (relUrl.indexOf("?") != -1) {
-    relUrl = relUrl.split("?")[0];
-  }
-
-  return relUrl;
-}

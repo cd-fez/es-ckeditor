@@ -1,3 +1,7 @@
+# es-ckeditor 4.7.2-custom-bytedance-patch7 (2018-11-03)
+
+* custom-bytedance定制
+
 # es-ckeditor 4.7.2-patch7 (2018-10-30)
 
 * 将表情图片通过相对路径加载
