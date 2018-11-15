@@ -88,6 +88,7 @@ CKEDITOR.editorConfig = function( config ) {
     // config.stylesSet = 'my_styles';
     config.codeSnippet_theme = 'zenburn';
 
+console.log(CKEDITOR.instances.yourInstance.filter.check('iframe'));
     config.fileSingleSizeLimit = 10;
 
 };
