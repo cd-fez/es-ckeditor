@@ -78,7 +78,7 @@ CKEDITOR.editorConfig = function( config ) {
     config.resize_enabled = false;
     config.title = false;
 
-    config.extraAllowedContent = 'img[src,width,height,alt,title]';
+    config.extraAllowedContent = 'img[src,width,height,alt,title],iframe [*]';
 
     config.removePlugins= 'elementspath';
 
@@ -88,7 +88,6 @@ CKEDITOR.editorConfig = function( config ) {
     // config.stylesSet = 'my_styles';
     config.codeSnippet_theme = 'zenburn';
 
-console.log(CKEDITOR.instances.yourInstance.filter.check('iframe'));
     config.fileSingleSizeLimit = 10;
 
 };
