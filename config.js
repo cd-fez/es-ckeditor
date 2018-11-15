@@ -82,7 +82,8 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.removePlugins= 'elementspath';
 
-    config.extraPlugins = 'embedsemantic,questionblank,smiley,table,font,kityformula,codesnippet,uploadpictures,shortUrl,image2,colorbutton,colordialog,justify,flash,find';
+    config.extraPlugins = 'html5audio,embedsemantic,questionblank,smiley,table,font,kityformula,codesnippet,uploadpictures,shortUrl,image2,colorbutton,colordialog,justify,flash,find';
+    config.filebrowserHtml5videoUploadUrl = "/HmCode/Shop/uploads";
     // config.dialog_backgroundCoverColor = 'white';
     // config.stylesSet = 'my_styles';
     config.codeSnippet_theme = 'zenburn';
