@@ -66,7 +66,7 @@ CKEDITOR.dialog.add( 'html5audio', function( editor ) {
         },
         {
             id: 'Upload',
-            hidden: true,
+            hidden: false,
             filebrowser: 'uploadButton',
             label: editor.lang.html5audio.upload,
             elements: [ {
