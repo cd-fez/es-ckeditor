@@ -1,3 +1,7 @@
+# es-ckeditor 4.7.2-custom-bytedance-iframe-patch7 (2018-11-03)
+
+* custom-bytedance定制,添加插件iframe,删除插件外媒url
+
 # es-ckeditor 4.7.2-custom-bytedance-patch7 (2018-11-03)
 
 * custom-bytedance定制
