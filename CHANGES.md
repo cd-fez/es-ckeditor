@@ -1,6 +1,6 @@
 # es-ckeditor 4.7.2-custom-bytedance-patch8 (2018-11-03)
 
-* link设置默认新开页面
+* link设置默认新开页面 分支：feature/custom-bytedance-Link-plugins-set-default
 
 ```
 // config.js
