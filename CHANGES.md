@@ -1,3 +1,22 @@
+# es-ckeditor 4.7.2-custom-bytedance-patch8 (2018-11-03)
+
+* link设置默认新开页面
+
+```
+// config.js
+CKEDITOR.on('dialogDefinition', function(ev) {
+  var dialogName = ev.data.name;
+  var dialogDefinition = ev.data.definition;
+
+  if (dialogName == 'link') {
+    var targetTab = dialogDefinition.getContents('target');
+    var targetField = targetTab.get('linkTargetType');
+    targetField['default'] = '_blank';
+  }
+})
+
+```
+
 # es-ckeditor 4.7.2-custom-bytedance-patch7 (2018-11-03)
 
 * custom-bytedance定制
