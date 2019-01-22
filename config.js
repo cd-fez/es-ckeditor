@@ -90,3 +90,15 @@ CKEDITOR.editorConfig = function( config ) {
     config.fileSingleSizeLimit = 10;
 
 };
+
+CKEDITOR.on('dialogDefinition', function(ev) {
+  var dialogName = ev.data.name;
+  var dialogDefinition = ev.data.definition;
+
+  if (dialogName == 'link') { 
+    var targetTab = dialogDefinition.getContents('target');
+    var targetField = targetTab.get('linkTargetType');
+   
+    targetField['default'] = '_blank';
+  }
+})
