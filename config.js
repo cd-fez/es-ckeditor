@@ -77,7 +77,6 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.resize_enabled = false;
     config.title = false;
-    config.imageUploadUrl='';
 
     config.extraAllowedContent = 'img[src,width,height,alt,title]';
 
