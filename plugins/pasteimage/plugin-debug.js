@@ -1,4 +1,7 @@
-﻿'use strict';
+﻿/*
+respository: https://github.com/bellorchid/pasteimage
+*/
+'use strict';
 
 ( function() {
   CKEDITOR.plugins.add( 'pasteimage', {
