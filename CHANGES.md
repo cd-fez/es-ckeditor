@@ -1,4 +1,8 @@
-# es-ckeditor 4.7.2-custom-bytedance-patch8 (2019-01-22)
+# es-ckeditor 4.7.2-custom-bytedance-patch9 (2019-02-13)
+
+ * 修改黏贴图片上传图片的策略
+
+# es-ckeditor 4.7.2-custom-bytedance-patch8 (201-01-22)
 
 * link设置默认新开页面 分支：feature/custom-bytedance-Link-plugins-set-default
 
