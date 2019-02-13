@@ -1,3 +1,6 @@
+# es-ckeditor 4.7.2-custom-bytedance-patch9 (2019-02-13)
+* 合并主程序分支，黏贴图片上传图片的策略想问下·
+
 # es-ckeditor 4.7.2-custom-bytedance-patch8 (2018-11-03)
 
 * link设置默认新开页面 分支：feature/custom-bytedance-Link-plugins-set-default
@@ -20,6 +23,14 @@ CKEDITOR.on('dialogDefinition', function(ev) {
 # es-ckeditor 4.7.2-custom-bytedance-patch7 (2018-11-03)
 
 * custom-bytedance定制
+
+# es-ckeditor 4.7.2-patch9 (2019-02-13)
+
+* 修改黏贴图片上传图片的策略
+
+# es-ckeditor 4.7.2-patch8 (2019-01-29)
+
+* 增加图片通过拖拽或者粘贴板粘贴的功能
 
 # es-ckeditor 4.7.2-patch7 (2018-10-30)
 
