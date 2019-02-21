@@ -78,7 +78,8 @@ CKEDITOR.editorConfig = function( config ) {
     config.resize_enabled = false;
     config.title = false;
 
-    config.extraAllowedContent = 'img[src,width,height,alt,title]';
+    // config.extraAllowedContent = 'img[src,width,height,alt,title]';
+    config.allowedContent = true;
 
     config.removePlugins= 'elementspath';
 
