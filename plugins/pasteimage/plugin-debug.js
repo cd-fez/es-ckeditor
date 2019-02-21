@@ -108,7 +108,7 @@ respository: https://github.com/bellorchid/pasteimage
         var fileByteSize = fileSize * 1024 * 1024;
 
         if (fileLoader.file.size > fileByteSize) {
-          alert(lang.single_file_max_size_tip + filesize(fileSize));
+          alert(lang.single_file_max_size_tip + filesize(fileByteSize));
           evt.cancel();
         }
 
