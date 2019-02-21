@@ -1,10 +1,10 @@
 # es-ckeditor 4.7.2-patch9 (2019-02-13)
 
-* 修改黏贴图片上传图片的策略
+* 修改黏贴图片上传图片的策略 pasteimage
 
 # es-ckeditor 4.7.2-patch8 (2019-01-29)
 
-* 增加图片通过拖拽或者粘贴板粘贴的功能
+* 增加图片通过拖拽或者粘贴板粘贴的功能 pasteimage
 
 # es-ckeditor 4.7.2-patch7 (2018-10-30)
 
