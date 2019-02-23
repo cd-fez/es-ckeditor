@@ -1,5 +1,5 @@
 CKEDITOR.plugins.add('uploadpictures', {
-    lang: 'en,zh,ug,zh-cn',
+    lang: 'en,zh,ug,zh-cn,th',
     icons: 'uploadpictures',
     init: function(editor) {
         CKEDITOR.dialog.add('uploadpictures', this.path + 'dialogs/uploadpictures.js');
