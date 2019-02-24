@@ -1,3 +1,7 @@
+# es-ckeditor 4.7.2-patch7-liandongfang (2019-2-24)
+
+* 图片上传支持泰语
+
 # es-ckeditor 4.7.2-patch7 (2018-10-30)
 
 * 将表情图片通过相对路径加载
