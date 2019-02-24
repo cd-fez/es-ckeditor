@@ -1,4 +1,4 @@
-CKEDITOR.plugins.setLang( 'uploadpictures', 'zh-cn', {
+CKEDITOR.plugins.setLang( 'uploadpictures', 'th', {
 	title: 'การอัปโหลดภาพเป็นกลุ่ม',
 	toolbar: 'การอัปโหลดภาพเป็นกลุ่ม',
     file_type_tip: 'ประเภทไฟล์รองรับเท่านั้น:',
