@@ -1,4 +1,4 @@
-# es-ckeditor 4.7.2-patch7-liandongfang (2019-2-24)
+# es-ckeditor 4.7.2-patch7-liandongfang-thai (2019-2-24)
 
 * 图片上传支持泰语
 
