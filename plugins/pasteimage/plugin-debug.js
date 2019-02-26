@@ -53,14 +53,10 @@ respository: https://github.com/bellorchid/pasteimage
 
         onUploaded: function (upload) {
           // Width and height could be returned by server (http://dev.ckeditor.com/ticket/13519).
-          var $img = this.parts.img.$,
-            width = upload.responseData.width || $img.naturalWidth,
-            height = upload.responseData.height || $img.naturalHeight;
+          var $img = this.parts.img.$;
 
           // Set width and height to prevent blinking.
-          this.replaceWith('<img src="' + upload.url + '" ' +
-            'width="' + width + '" ' +
-            'height="' + height + '">');
+          this.replaceWith( '<img src="' + upload.url + '" ' + '">' );
         }
       });
 
@@ -112,7 +108,7 @@ respository: https://github.com/bellorchid/pasteimage
         var fileByteSize = fileSize * 1024 * 1024;
 
         if (fileLoader.file.size > fileByteSize) {
-          alert(lang.single_file_max_size_tip + filesize(fileSize));
+          alert(lang.single_file_max_size_tip + filesize(fileByteSize));
           evt.cancel();
         }
 
