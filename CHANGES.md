@@ -1,3 +1,7 @@
+# es-ckeditor 4.7.2-custom-bytedance-patch10 (2019-02-26)
+
+* 修复图片粘贴或者拖拽时变形的问题
+
 # es-ckeditor 4.7.2-custom-bytedance-patch9 (2019-02-13)
 
  * 修改黏贴图片上传图片的策略
