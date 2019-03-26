@@ -1,3 +1,35 @@
+# es-ckeditor 4.7.2-custom-bytedance-patch11 (2019-03-26)
+
+```
+ // 上传图片压缩配置 plugins/uploadpictures/dialogs/uploadpictures.js
+  var compressSizeLimit = 10;
+
+  uploader = WebUploader.create({
+      swf: CKEDITOR.getUrl('plugins/uploadpictures/webuploader/Uploader.swf'),
+      server: uploadUrl,
+      pick: '.' + editor.id + ' .ckeditor-uploadpictures-pick-btn',
+      compress: {
+          width: 1200,
+          height: 8000,
+          quality: 100,
+          allowMagnify: false,
+          crop: false,
+          preserveHeaders: true,
+          compressSize: compressSizeLimit*1024*1024,
+      },
+      resize: false,
+      fileNumLimit: 10,
+      threads: 1,
+      fileSingleSizeLimit: fileSingleSizeLimit*1024*1024,
+      accept: {
+          title: 'Images',
+          extensions: 'gif,jpg,jpeg,bmp,png,ico',
+          mimeTypes: 'image/*'
+      }
+  });
+
+```
+
 # es-ckeditor 4.7.2-custom-bytedance-patch10 (2019-02-26)
 
 * 修复图片粘贴或者拖拽时变形的问题

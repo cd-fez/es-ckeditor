@@ -9,6 +9,7 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
         uploadUrl += 'CKEditorFuncNum=0&isWebuploader=1';
 
         var fileSingleSizeLimit = editor.config.fileSingleSizeLimit;
+        var compressSizeLimit = 10;
 
         uploader = WebUploader.create({
             swf: CKEDITOR.getUrl('plugins/uploadpictures/webuploader/Uploader.swf'),
@@ -17,10 +18,11 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
             compress: {
                 width: 1200,
                 height: 8000,
-                quality: 90,
+                quality: 100,
                 allowMagnify: false,
                 crop: false,
-                preserveHeaders: true
+                preserveHeaders: true,
+                compressSize: compressSizeLimit*1024*1024,
             },
             resize: false,
             fileNumLimit: 10,
