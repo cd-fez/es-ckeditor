@@ -1,3 +1,7 @@
+# es-ckeditor 4.7.2-custom-tme-patch12 (2019-05-23)
+
+* 个人中心编辑器，toolbar去掉源码
+
 # es-ckeditor 4.7.2-patch11 (2019-02-21)
 
 * 修复图片粘贴或者拖拽时变形的问题
