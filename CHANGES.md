@@ -1,3 +1,15 @@
+# es-ckeditor 4.7.2-custom-tme-mobile-patch12 (2019-07-20)
+
+* 腾讯音乐富文本手机端因为域名原因，显示的图片地址添加 /learn
+
+```js
+
+//plugins/image2/plugin.js
+
+图片src 添加'/learn'路径
+
+```
+
 # es-ckeditor 4.7.2-custom-tme-patch12 (2019-05-23)
 
 * 个人中心编辑器，toolbar去掉源码
