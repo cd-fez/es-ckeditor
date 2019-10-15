@@ -1,4 +1,4 @@
-# es-ckeditor 4.7.2-aia-custom-patch12 (2019-10-15)
+# es-ckeditor 4.7.2-custom-aia-patch12 (2019-10-15)
 
 * 友邦定制项目去掉版本信息
 

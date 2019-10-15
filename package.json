@@ -1,6 +1,6 @@
 {
-  "name": "aia-ckeditor",
-  "version": "4.7.2-aia-custom-patch12",
+  "name": "es-ckeditor",
+  "version": "4.7.2-custom-aia-patch12",
   "description": "CKEditor-based implementation and add some plugins, For example kityformula etc.",
   "main": "ckeditor.js",
   "repository": {
