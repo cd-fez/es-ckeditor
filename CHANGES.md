@@ -1,3 +1,15 @@
+# es-ckeditor 4.7.2-custom-tme-mobile-patch13 (2020-02-20)
+
+* 腾讯音乐富文本手机端因为域名原因，表情图片自动带上了learn，需要去掉
+
+```js
+
+//plugins/smiley/dialogs/smiley.js
+
+图片data-cke-saved-src 去掉'learn/'
+
+```
+
 # es-ckeditor 4.7.2-custom-tme-mobile-patch12 (2019-07-20)
 
 * 腾讯音乐富文本手机端因为域名原因，显示的图片地址添加 /learn
