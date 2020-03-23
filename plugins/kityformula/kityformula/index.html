@@ -29,12 +29,12 @@
                 var kfe = window.kfe;
                 var source = kfe.execCommand( "get.source" );
                 var replaceSpecialCharacter = function(source) {
-                var $source = source.replace(/\\cong/g,'=^\\sim')
-                    .replace(/\\varnothing/g,'\\oslash')
-                    .replace(/\\gets/g,'\\leftarrow')
-                    .replace(/\\because/g,'\\cdot_\\cdot\\cdot')
-                    .replace(/\\blacksquare/g,'\\rule{20}{20}');
-                    return $source;
+                    var $source = source.replace(/\\cong/g,'=^\\sim')
+                        .replace(/\\varnothing/g,'\\oslash')
+                        .replace(/\\gets/g,'\\leftarrow')
+                        .replace(/\\because/g,'\\cdot_\\cdot\\cdot')
+                        .replace(/\\blacksquare/g,'\\rule{20}{20}');
+                        return $source;
                 };
                 source = replaceSpecialCharacter(source);
                 if ($.trim(source) == "\\placeholder"){
@@ -48,14 +48,14 @@
                 {
                     var strCode=source.charCodeAt(i);
                     if((strCode>65248)||(strCode==12288)){
-                    alert("不能含有中文全角字符");
-                    return false;
+                        alert("不能含有中文全角字符");
+                        return false;
+                    }
                 }
+                var $imgUrl = 'http://formula.edusoho.net/cgi-bin/mimetex.cgi?'+source;
+                window.parent.postMessage({eventName:'es-ckeditor.post', imageUrl:$imgUrl, source:source }, '*');
             }
-            var $imgUrl = 'http://formula.edusoho.net/cgi-bin/mimetex.cgi?'+source;
-            window.parent.postMessage({eventName:'es-ckeditor.post', imageUrl:$imgUrl, source:source }, '*');
-        }
-    }, false);
+        }, false);
         jQuery( function ($) {
 
             var factory = kf.EditorFactory.create( $( "#kfEditorContainer" )[ 0 ], {
