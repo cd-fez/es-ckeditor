@@ -25,8 +25,8 @@
         var isIE=!-[1,];
 
         //防止modal关闭后重新打开创建多个iframe导致BUG
-        if($("#editorContainer_"+editor.name).length > 0 ){
-            $("#editorContainer_"+editor.name).remove();
+        if($(document.getElementById("editorContainer_" + editor.name)).length > 0 ){
+            $(document.getElementById("editorContainer_" + editor.name)).remove();
         }
         var html = '<iframe scrolling="no" id="editorContainer_'+editor.name+'" src="'+ iframeSrcPath("../kityformula/index.html") +'" style="width: 100% !important; height: 300px !important"></iframe>';
         
@@ -53,7 +53,7 @@
 
             },
             onShow: function () {
-                var kfe = $("#editorContainer_"+editor.name)[0].contentWindow.kfe;
+                var kfe = $(document.getElementById("editorContainer_" + editor.name))[0].contentWindow.kfe;
                 if(kfe){
                     kfe.execCommand( "render", '\\placeholder');
                 }
@@ -66,7 +66,7 @@
                 if(isIE){
                     source = $("#oldFormula").val();
                 }else{
-                    var kfe = $("#editorContainer_"+editor.name)[0].contentWindow.kfe;
+                    var kfe = $(document.getElementById("editorContainer_" + editor.name))[0].contentWindow.kfe;
                     source = kfe.execCommand( "get.source" );
                     var replaceSpecialCharacter = function(source) {
                         var $source = source.replace(/\\cong/g,'=^\\sim')
