@@ -93,8 +93,30 @@
                         }
                     }
                     var $imgUrl = 'http://formula.edusoho.net/cgi-bin/mimetex.cgi?'+source;
-                    $.post($(document.getElementById(editor.name)).data('imageDownloadUrl'),{url:$imgUrl}, function(result){
-                        var insertHtml='<img kityformula="true" src="'+result+'" alt="'+source+'">';
+                    // $.post($(document.getElementById(editor.name)).data('imageDownloadUrl'),{url:$imgUrl}, function(result){
+                    //     var insertHtml='<img kityformula="true" src="'+result+'" alt="'+source+'">';
+                    //     editor.insertHtml(insertHtml);
+                    // });
+
+                    $.ajax({
+                        type: "post",
+                        url: $(document.getElementById(editor.name)).data(
+                        "imageDownloadUrl"
+                        ),
+                        data: { url: $imgUrl },
+                        beforeSend(request) {
+                            request.setRequestHeader(
+                                "X-CSRF-Token",
+                                $("meta[name=csrf-token]").attr("content")
+                            );
+                        }
+                    }).done(function(result) {
+                        var insertHtml =
+                        '<img kityformula="true" src="' +
+                        result +
+                        '" alt="' +
+                        source +
+                        '">';
                         editor.insertHtml(insertHtml);
                     });
                 }
