@@ -91,12 +91,7 @@
                         );
                     }
                 }).done(function(result) {
-                    var insertHtml =
-                    '<img kityformula="true" src="' +
-                    result +
-                    '" alt="' +
-                    source +
-                    '">';
+                    var insertHtml='<img kityformula="true" src="'+result+'" alt="'+source+'">';
                     editor.insertHtml(insertHtml);
                 });
             }
