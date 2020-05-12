@@ -1,7 +1,7 @@
 # es-ckeditor 4.7.2-patch13 (2020-05-12)
 
 * 解决公式编辑器跨域问题
-* 适配item-bank中调用 es-ckeditor 编辑器
+* 适配item-bank中调用 es-ckeditor 公式编辑器
 
 # es-ckeditor 4.7.2-patch12 (2019-05-23)
 
