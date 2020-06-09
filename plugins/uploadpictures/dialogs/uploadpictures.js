@@ -117,7 +117,7 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
             $("#uploadContainer_"+editor.name)[0].contentWindow.postMessage({eventName: 'dialogDefinition.Load'}, '*');
             function receiveMessage(event) {
                 var innerHtml = event.data;
-                $('.' + editor.id + ' #uploadpictures-body').append(innerHtml);
+                $('.' + editor.id + ' #js-uploadpictures-body').append(innerHtml);
                 $("#uploadContainer_"+editor.name)[0].remove();
 
                 onLoadDialog();
