@@ -86,6 +86,14 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
         // });
     };
 
+    var url = CKEDITOR.getUrl('plugins/uploadpictures/html/index_'+editor.config.language+'.html');
+    var dialogHtml = `
+        <div id="js-uploadpictures-body">
+            <iframe src=${url} scrolling="no" id="uploadContainer_${editor.name}" width="0" height="0" style="display:none;visibility:hidden">
+            </iframe>
+        </div>
+    `;
+
     var dialogDefinition = {
         title: editor.lang.uploadpictures.title,
         minWidth: 600,
@@ -100,13 +108,23 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
             elements: [{
                 id: "body",
                 type: "html",
-                html: '<div class="js-uploadpictures-body"></div>'
+                html: dialogHtml
             }]
         }],
         
         onLoad: function() {
             $('.' + editor.id + ' .js-uploadpictures-body').css({'vertical-align': 'top'});
-            $('.' + editor.id + ' .js-uploadpictures-body').load(CKEDITOR.getUrl('plugins/uploadpictures/html/index_'+editor.config.language+'.html'), onLoadDialog);
+            // $('.' + editor.id + ' .js-uploadpictures-body').load(CKEDITOR.getUrl('plugins/uploadpictures/html/index_'+editor.config.language+'.html'), onLoadDialog);
+            $("#uploadContainer_"+editor.name)[0].contentWindow.postMessage({eventName: 'dialogDefinition.Load'}, '*');
+            function receiveMessage(event) {
+                var innerHtml = event.data;
+                $('.' + editor.id + ' #uploadpictures-body').append(innerHtml);
+                $("#uploadContainer_"+editor.name)[0].remove();
+
+                onLoadDialog();
+            }
+            window.addEventListener("message", receiveMessage, false);
+
         },
 
         onOk: function() {
