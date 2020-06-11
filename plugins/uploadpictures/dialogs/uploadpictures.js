@@ -2,6 +2,23 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
     
     var imageHtml = '', uploader;
     var lang = editor.lang.uploadpictures;
+
+    var initEvent = function () {
+      function receiveMessage(event) {
+          var eventName = event.data.eventName;
+          if (eventName === 'es-ckeditor.post') {
+              var innerHtml = event.data.html;
+              $('.' + editor.id + ' #js-uploadpictures-body').append(innerHtml);
+              $("#uploadContainer_"+editor.name)[0].remove();
+
+              onLoadDialog();
+          }
+      }
+      window.addEventListener("message", receiveMessage, false);
+    };
+
+    initEvent();
+
     var onLoadDialog = function() {
 
         var uploadUrl = editor.config.filebrowserImageUploadUrl;
@@ -114,16 +131,6 @@ CKEDITOR.dialog.add('uploadpictures', function(editor) {
         
         onLoad: function() {
             $('.' + editor.id + ' .js-uploadpictures-body').css({'vertical-align': 'top'});
-            $("#uploadContainer_"+editor.name)[0].contentWindow.postMessage({eventName: 'dialogDefinition.Load'}, '*');
-            function receiveMessage(event) {
-                var innerHtml = event.data;
-                $('.' + editor.id + ' #js-uploadpictures-body').append(innerHtml);
-                $("#uploadContainer_"+editor.name)[0].remove();
-
-                onLoadDialog();
-            }
-            window.addEventListener("message", receiveMessage, false);
-
         },
 
         onOk: function() {
