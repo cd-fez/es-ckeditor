@@ -83,7 +83,7 @@ CKEDITOR.editorConfig = function( config ) {
 
     config.removePlugins= 'elementspath';
 
-    config.extraPlugins = 'questionblank,smiley,table,font,kityformula,codesnippet,uploadpictures,shortUrl,image2,colorbutton,colordialog,justify,find,filebrowser,pasteimage';
+    config.extraPlugins = 'questionblank,smiley,table,font,kityformula,codesnippet,uploadpictures,shortUrl,image2,colorbutton,colordialog,justify,find,filebrowser,pasteimage,pasteUploadImage';
     // config.dialog_backgroundCoverColor = 'white';
     // config.stylesSet = 'my_styles';
     config.codeSnippet_theme = 'zenburn';
