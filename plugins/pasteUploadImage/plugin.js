@@ -3,22 +3,48 @@
   var CKEDITOR_NAME = 'pasteUploadImage';
 
   CKEDITOR.plugins.add(CKEDITOR_NAME, {
+    requires: "uploadwidget",
     init: function(editor) {
+      var fileTools = CKEDITOR.fileTools,
+          uploadUrl = fileTools.getUploadUrl(editor.config, 'image') || '';
+      if (!uploadUrl) return;
+      var ckCsrfToken = CKEDITOR.tools.getCsrfToken();
       var config = editor.config;
-      var notSupportText = 'Your browser is not supported'
-      if (!window.Promise || !window.XMLHttpRequest) {
-        alert(notSupportText);
-        return;
-      }
+      // fileTools.addUploadWidget(editor, "pasteUploadImage", {
+      //   supportedTypes: /image\/(jpeg|png|gif|bmp)/,
+      //   uploadUrl: uploadUrl,
+      //   fileToElement: function () {
+      //     var img = new CKEDITOR.dom.element("img");
+      //     img.setAttribute("src", loadingImage);
+      //     return img
+      //   },
+      //   parts: {
+      //     img: "img"
+      //   },
+      //   onUploading: function (upload) {
+      //     this.parts.img.setAttribute("src", upload.data)
+      //   },
+      //   onUploaded: function (upload) {
+      //     var $img = this.parts.img.$;
+      //     this.replaceWith('<img src="' + upload.url + '" ' + '">')
+      //   }
+      // })
 
-      if (!config.pasteUploadFileApi) {
-        CKEDITOR.error('You must to config "config.pasteUploadFileApi" in ckeditor/config.js');
-        return;
-      }
+      // var notSupportText = 'Your browser is not supported'
+      // if (!window.Promise || !window.XMLHttpRequest) {
+      //   alert(notSupportText);
+      //   return;
+      // }
+
+      // if (!config.pasteUploadFileApi) {
+      //   CKEDITOR.error('You must to config "config.pasteUploadFileApi" in ckeditor/config.js');
+      //   return;
+      // }
 
       editor.on('paste', function (event) {
-        var dataTransfer = event.data.dataTransfer;
-        var filesCount = dataTransfer.getFilesCount();
+        debugger
+        // var dataTransfer = event.data.dataTransfer;
+        // var filesCount = dataTransfer.getFilesCount();
         var oldUrl = event.data.dataValue;
         // base64 paste from word
         if (oldUrl.match(/<img[\s\S]+data:/i)) {
@@ -26,35 +52,42 @@
         }
         // 去重一些src data-src等造成的重复图片
         var urls = uniq(oldUrl.match(/(?<=img.*?[\s]src=")[^"]+(?=")/gi));
-        if (filesCount > 0) {
-          for (var i = 0; i < filesCount; i++) {
-            var file = dataTransfer.getFile(i);
-            // 网页复制单个
-            if (urls.length) {
-              modal(urls[0]);
-              uploadFile(urls[0], urls[0], file);
-            }
-            //本地imagename.png
-            else {
-              if (!window.URL || !window.URL.createObjectURL) {
-                alert(notSupportText);
-                return;
-              }
-              var modalUrl = window.URL.createObjectURL(file);
-              var isCreateImage = true;
-              modal(modalUrl);
-              uploadFile(oldUrl, modalUrl, file, isCreateImage)
-            }
-          }
-        } else {
-          // 网页上传URL
-          if (urls.length) {
-            for (var i = 0; i < urls.length; i++) {
-              modal(urls[i]);
-              uploadImageUrl(urls[i]);
-            }
+console.log(event);
+console.log(event.data.dataTransfer);
+        if (urls.length) {
+          for (var i = 0; i < urls.length; i++) {
+            uploadImageUrl(urls[i]);
           }
         }
+        // if (filesCount > 0) {
+        //   for (var i = 0; i < filesCount; i++) {
+        //     var file = dataTransfer.getFile(i);
+        //     // 网页复制单个
+        //     if (urls.length) {
+        //       modal(urls[0]);
+        //       uploadFile(urls[0], urls[0], file);
+        //     }
+        //     //本地imagename.png
+        //     else {
+        //       if (!window.URL || !window.URL.createObjectURL) {
+        //         alert(notSupportText);
+        //         return;
+        //       }
+        //       var modalUrl = window.URL.createObjectURL(file);
+        //       var isCreateImage = true;
+        //       modal(modalUrl);
+        //       uploadFile(oldUrl, modalUrl, file, isCreateImage)
+        //     }
+        //   }
+        // } else {
+        //   // 网页上传URL
+        //   if (urls.length) {
+        //     for (var i = 0; i < urls.length; i++) {
+        //       modal(urls[i]);
+        //       uploadImageUrl(urls[i]);
+        //     }
+        //   }
+        // }
       });
       
       function uploadFile (oldUrl, modalUrl, file, isCreateImage) {
@@ -82,9 +115,16 @@
       }
 
       function uploadImageUrl (oldUrl) {
-        var url = config.pasteUploadImageUrlApi || config.pasteUploadFileApi;
+        var formData = new FormData();
+        var file = new File([Blob], oldUrl);
+        console.log(file);
+        debugger
+        formData.append('upload', file);
+        formData.append('uploadMode', 'paste');
+        formData.append('ckCsrfToken', ckCsrfToken);
         var option = {
-          url: url + '?url=' + encodeURIComponent(oldUrl)
+          url: uploadUrl,
+          data: formData
         };
         ajaxPost(option).then(function (text) {
           if (text === 'request time out') {
