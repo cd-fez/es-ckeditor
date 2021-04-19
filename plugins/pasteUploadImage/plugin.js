@@ -129,28 +129,25 @@
         if ( editor.fire( 'pasteFromWord', pfwEvtData ) === false && !forceFromWord ) {
           return;
         }
-
         // Do not apply paste filter to data filtered by the Word filter (https://dev.ckeditor.com/ticket/13093).
         data.dontFilter = true;
 
         if ( forceFromWord || confirmCleanUp() ) {
-          // pfwEvtData.dataValue = CKEDITOR.cleanWord( pfwEvtData.dataValue, editor );
+          pfwEvtData.dataValue = CKEDITOR.cleanWord( pfwEvtData.dataValue, editor );
 
           // Paste From Word Image:
           // RTF clipboard is required for embedding images.
           // If img tags are not allowed there is no point to process images.
           // Also skip embedding images if image filter is not loaded.
-          // if ( CKEDITOR.plugins.clipboard.isCustomDataTypesSupported && configInlineImages &&
-          //   CKEDITOR.pasteFilters.image ) {
-          console.log(CKEDITOR.pasteFilters);
+          if ( CKEDITOR.plugins.clipboard.isCustomDataTypesSupported && configInlineImages &&
+            CKEDITOR.pasteFilters.image ) {
             pfwEvtData.dataValue = CKEDITOR.pasteFilters.image( pfwEvtData.dataValue, editor, dataTransferRtf );
             console.log(pfwEvtData.dataValue);
-          // }
+          }
 
           editor.fire( 'afterPasteFromWord', pfwEvtData );
 
           data.dataValue = pfwEvtData.dataValue;
-
           // if ( editor.config.forcePasteAsPlainText === true ) {
           //   // If `config.forcePasteAsPlainText` set to true, force plain text even on Word content (#1013).
           //   data.type = 'text';
