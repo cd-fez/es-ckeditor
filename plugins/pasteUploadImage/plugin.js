@@ -120,6 +120,16 @@
 
       editor.on('paste', function (evt) {
         var data = evt.data,
+        // Always get raw clipboard data (#3586).
+        mswordHtml = CKEDITOR.plugins.pastetools.getClipboardData( data, 'text/html' ),
+        generatorName = CKEDITOR.plugins.pastetools.getContentGeneratorName( mswordHtml ),
+        wordRegexp = /(class="?Mso|style=["'][^"]*?\bmso\-|w:WordDocument|<o:\w+>|<\/font>)/,
+        // Use wordRegexp only when there is no meta generator tag in the content
+        isOfficeContent = generatorName ? generatorName === 'microsoft' : wordRegexp.test( mswordHtml );
+
+        if (!(mswordHtml && ( forceFromWord || isOfficeContent ))) return;
+
+        var data = evt.data,
           mswordHtml = evt.data.dataTransfer.getData('text/html', true),
           // Required in Paste from Word Image plugin (#662).
           dataTransferRtf = evt.data.dataTransfer.getData('text/rtf', true),
