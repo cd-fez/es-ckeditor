@@ -1283,9 +1283,9 @@
 
   function replaceWithMatchingFont( fontValue, availableFonts ) {
     var fontParts = fontValue.split( ',' ),
-      matchingFont = CKEDITOR.tools.array.find( availableFonts, function( font ) {
+      matchingFont = find( availableFonts, function( font ) {
         for ( var i = 0; i < fontParts.length; i++ ) {
-          if ( font.indexOf( CKEDITOR.tools.trim( fontParts[ i ] ) ) === -1 ) {
+          if ( font.indexOf( trim( fontParts[ i ] ) ) === -1 ) {
             return false;
           }
         }
@@ -1294,6 +1294,28 @@
       } );
 
     return matchingFont || fontValue;
+  }
+
+  function find(array, fn, thisArg) {
+    var length = array.length,
+        i = 0;
+
+      while ( i < length ) {
+        if ( fn.call( thisArg, array[ i ], i, array ) ) {
+          return array[ i ];
+        }
+        i++;
+      }
+
+      return undefined;
+  }
+
+  function trim() {
+    // We are not using \s because we don't want "non-breaking spaces" to be caught.
+    var trimRegex = /(?:^[ \t\n\r]+)|(?:[ \t\n\r]+$)/g;
+    return function( str ) {
+      return str.replace( trimRegex, '' );
+    };
   }
 
   function normalizeAttributesName( element ) {
