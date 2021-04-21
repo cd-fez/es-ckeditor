@@ -268,6 +268,10 @@ respository: https://github.com/bellorchid/pasteimage
         evt.data.requestData.uploadMode = 'paste';
       });
 
+      editor.on('fileUploadResponse', function (evt) {
+        editor.focusManager.blur();
+      });
+
       function confirmCleanUp() {
         return !editor.config.pasteFromWordPromptCleanup || confirm(editor.lang.pastefromword.confirmCleanup);
       }
