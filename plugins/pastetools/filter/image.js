@@ -22,6 +22,12 @@
    * @param {String} rtf
    * @member CKEDITOR.plugins.pastetools.filters
    */
+  CKEDITOR.tools.array.unique = function( array ) {
+    return CKEDITOR.tools.array.filter( array, function( item, index ) {
+      return index === CKEDITOR.tools.array.indexOf( array, item );
+    } );
+  }
+
   CKEDITOR.pasteFilters.image = function( html, editor, rtf ) {
     var imgTags;
 
